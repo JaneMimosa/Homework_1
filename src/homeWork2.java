@@ -74,11 +74,11 @@ public class homeWork2<isTrue, randomArray> {
 
     //6. ** Написать метод, в который передается не пустой одномерный целочисленный массив,
     // метод должен вернуть true, если в массиве есть место, в котором сумма левой и правой части массива равны
-        boolean res = myMethod(randomArray);
+        boolean res = checkBalance(randomArray);
         System.out.println(res);
     }
 
-    public static boolean myMethod(int[] arr) {
+    public static boolean checkBalance(int[] arr) {
         int sum = 0;
         int second = 0; // в конце будет сумма чисел но с конца
         for (int i = 0; i < arr.length; i++) {  //сначала считаем сумму всех чисел
