@@ -46,9 +46,10 @@ public class HomeWork3 {
         System.out.println("Попробуйте угадать слово");
         String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
         String answer = words[(int) (Math.random() * (words.length - 1))];
-        for (int i = 0; i <= answer.length(); i++) {
+        int tryCount = 10;
+        for (int i = 0; i <= tryCount; i++) {
             String userAnswer = scanner.next();
-            if (i == answer.length()) {
+            if (i == tryCount) {
                 System.out.println("Вы проиграли. Правильный ответ: " + answer);
                 break;
             }
@@ -56,11 +57,15 @@ public class HomeWork3 {
                 System.out.println("Поздравляю, вы угадали слово!");
                 break;
             } else {
-                char a = answer.charAt(i);
-                answerArray[i] = a;
+                for (int j = 0; j < userAnswer.length() && j < answer.length(); j++) {
+                    char a = answer.charAt(j);
+                    char b = userAnswer.charAt(j);
+                    if (a == b) {
+                        answerArray[j] = a;
+                    }
+                }
                 System.out.println(answerArray);
             }
-
         }
     }
 }
