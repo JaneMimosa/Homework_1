@@ -27,13 +27,17 @@ public class MyWindow extends JFrame {
                         button.setIcon(x);
                         if (checkWin(x)) {
                             winnerDialog("Вы победили!");
+                            return;
                         }
                         if (isMapFull()) {
+                            dispose();
                             winnerDialog("Ничья");
+                            return;
                         }
                         movePc();
                         if (checkWin(o)) {
                             winnerDialog("Компьютер победил");
+                            return;
                         }
                     }
 
@@ -70,7 +74,6 @@ public class MyWindow extends JFrame {
             y = rand.nextInt(3);
         } while (!map[x][y].getIcon().equals(def));
         map[x][y].setIcon(o);
-        return;
     }
 
     public boolean checkWin(ImageIcon symbol) {
